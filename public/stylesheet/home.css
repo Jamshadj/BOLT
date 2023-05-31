@@ -1,0 +1,21 @@
+.appname{
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    float: right;
+    padding-top: 1rem;
+}
+
+.ri-heart-line{
+    color: white;
+    font-size: 26px;
+    padding-left: 10px;
+}
+.ri-shopping-cart-line{
+    color: white;
+    font-size: 26px;
+    padding-left: 10px;
+}
+.home-content{
+    background-color: #17181E;;
+}

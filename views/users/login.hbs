@@ -1,0 +1,47 @@
+<section class="section" style="overflow: hidden;">
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-sm-8 col-md-6 col-lg-5" style="margin-top: 3rem;">
+        <div class="card" style="border-radius: 1rem; border: 1px solid gray; border-radius: 3%; background: transparent;">
+          <div class="card-body p-5 text-center">
+            <form action="/login" method="post">
+              <h2 class="mb-4 text-uppercase font-weight-bold" style="color: white;">Login</h2>
+              <p class="text-white-50 mb-5" style="color: white;" >Please enter your email and password!</p>
+              <div class="form-group mb-4">
+                <input type="email" id="typeEmailX" class="form-control form-control-lg" style="background: transparent;color: white;" placeholder="E-mail" name="email" >
+              </div>
+              <div class="form-group mb-4">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" style="background: transparent; color: white" placeholder="Password" name="password" >
+              </div>
+              <p class="text-danger">{{message}}</p>
+              <p class="text-success">{{sucessmessage}}</p>
+              <button type="submit" class="btn btn-outline-primary btn-block mb-3">Login</button>
+              <div class="text-center">
+                <p class="mb-2" style="color: white;">Don't have an account? <a href="/signup" class="text-white font-weight-bold">Create a new account</a></p>
+                <p class="mb-2"><a href="/forgot" class="text-white font-weight-bold">Forgot password?</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    height: 100vh;
+    background-color: #212529;
+  }
+
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 576px) {
+    .card {
+      margin-top: 5rem;
+    }
+  }
+</style>

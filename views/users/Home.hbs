@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/product-detail/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/style.css" type="text/css">
+
+    <style>
+        @media (max-width: 991px) {
+
+            .property__gallery .col-md-6,
+            .property__gallery .col-sm-12 {
+                flex-basis: 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .product__item__text {
+                font-size: 0.8rem;
+            }
+
+            .product__item__text h6 {
+                margin-bottom: 0.5rem;
+            }
+              .product__item__pic {
+            height: 160px;
+
+        }
+        }
+
+      
+    </style>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+                </a></li>
+            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+                </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="/product-detail/img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            {{#if user}}
+            <a href="/profile">{{user.name}}</a>
+            {{else}}
+            <a href="/login">Login</a>
+            <a href="/signup">Register</a>
+            {{/if}}
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header" style="height: 70px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="/"><img src="/product-detail/img/logo.png" style="width: 22%;" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/productpage">Products</a></li>
+                            <li><a href="/productpage">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                            <li><a href="">Blog</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <div class="header__right__auth">
+                            {{#if user}}
+                            <a href="/profile">{{user.name}}</a>
+                            {{else}}
+                            <a href="/login">Login</a>
+                            <a href="/signup">Register</a>
+                            {{/if}}
+                        </div>
+                        <ul class="header__right__widget">
+                            <li><span class="icon_search search-switch"></span></li>
+                            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+
+
+                                </a></li>
+                            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <section>
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {{#each banner}}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{@index}}" {{#if @first}}class="active"
+                    {{/if}}></li>
+                {{/each}}
+            </ol>
+            <div class="carousel-inner">
+                {{#each banner}}
+                <div class="carousel-item {{#if @first}}active{{/if}}">
+                    <img class="d-block w-100" src="/photos/{{this.image}}" alt="{{this.image.alt}}">
+                </div>
+                {{/each}}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+
+
+    <section class="product spad">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="section-title">
+                        <h4>New product</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row property__gallery">
+                {{#each product}}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix women">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="/photos/{{this.image}}">
+                            <ul class="product__hover">
+                                <li><a href="/photos/{{this.image}}" class="image-popup"><span
+                                            class="arrow_expand"></span></a></li>
+                                <li><a onclick="addtowishlist('{{this._id}}')" class="add-to-wishlist"><span
+                                            class="icon_heart_alt"></span></a></li>
+                                <li><a onclick="addToCart('{{this._id}}')"><span class="icon_bag_alt"></span></a></li>
+
+
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/product/{{this._id}}">{{this.productname}}</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product__price">₹{{this.prize}}</div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <a href="/productpage" class="primary-btn">View more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section End -->
+
+
+    <!-- Banner Section Begin -->
+    <section class="banner set-bg" data-setbg="/product-detail/img/banner/banner-1.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8 m-auto">
+                    <div class="banner__slider owl-carousel">
+                        <div class="banner__item">
+                            <div class="banner__text">
+                                <span>For the best collection</span>
+                                <h1>Bolt </h1>
+                                {{!-- <a href="#">Shop now</a> --}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner Section End -->
+
+    <!-- Services Section Begin -->
+    <section class="services spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <i class="fa fa-car"></i>
+                        <h6>Free Shipping</h6>
+                        <p>For all oder over $99</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <i class="fa fa-money"></i>
+                        <h6>Money Back Guarantee</h6>
+                        <p>If good have Problems</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <i class="fa fa-support"></i>
+                        <h6>Online Support 24/7</h6>
+                        <p>Dedicated support</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <i class="fa fa-headphones"></i>
+                        <h6>Payment Secure</h6>
+                        <p>100% secure payment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instagram Begin -->
+    <div class="instagram">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-1.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-2.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-3.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-4.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-5.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-6.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instagram End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-7">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img style="max-width: 20%;" src="/product-detail/img/logo.png"
+                                    alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            cilisis.</p>
+                        <div class="footer__payment">
+                            <a href="#"><img src="/product-detail/img/payment/payment-1.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-2.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-3.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-4.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-5.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-5">
+                    <div class="footer__widget">
+                        <h6>Quick links</h6>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="footer__widget">
+                        <h6>Account</h6>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Orders Tracking</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="footer__newslatter">
+                        <h6>NEWSLETTER</h6>
+                        {{#if user}}
+                        <form action="/logout" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">logout</button>
+                        </form>
+                        {{else}}
+                        <form action="/login" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">login</button>
+                        </form>
+                        {{/if}}
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form" action="/search-product" method="post">
+                <input type="text" id="search-input" placeholder="Search here....." name="name">
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Alert!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    You need to login first
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn " data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn"> <a href="/login">Login</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- modal --}}
+
+    <script>
+
+        function addToCart(id) {
+
+            axios.get('/addtocart/' + id).then((result) => {
+                ;
+                if (result.data.success) {
+                    swal("Success!", "The item has been added to your cart.", "success");
+                } else {
+                    console.log('ddre')
+                    swal({
+                        title: "Please login",
+                        text: "You need to login to access this page.",
+                        imageUrl: 'login-icon.png',
+                        imageAlt: 'Login icon',
+                        buttons: {
+                            cancel: true,
+                            confirm: {
+                                text: "Login",
+                                value: "login",
+                                className: "login-btn",
+                            }
+                        },
+                    })
+                        .then((value) => {
+                            if (value === "login") {
+                                location.href = '/login'
+                            }
+                        });
+
+
+                }
+            })
+        }
+        function addtowishlist(id) {
+            console.log('dfrfrcddccddd', id)
+            axios.get('/addtowishlist/' + id).then((result) => {
+                if (result.data.success) {
+                    swal("Success!", "The item has been added to your wishlist", "success");
+                } else {
+                    console.log('dfrfrd')
+                    swal({
+                        title: "Please login",
+                        text: "You need to login to access this page.",
+                        imageUrl: 'login-icon.png',
+                        imageAlt: 'Login icon',
+                        buttons: {
+                            cancel: true,
+                            confirm: {
+                                text: "Login",
+                                value: "login",
+                                className: "login-btn",
+                            }
+                        },
+                    })
+                        .then((value) => {
+                            if (value === "login") {
+                                location.href = '/login'
+                            }
+                        });
+
+
+                }
+            })
+        }
+
+    </script>
+
+
+
+    <script src="/product-detail/js/jquery-3.3.1.min.js"></script>
+    <script src="/product-detail/js/bootstrap.min.js"></script>
+    <script src="/product-detail/js/jquery.magnific-popup.min.js"></script>
+    <script src="/product-detail/js/jquery-ui.min.js"></script>
+    <script src="/product-detail/js/mixitup.min.js"></script>
+    <script src="/product-detail/js/jquery.countdown.min.js"></script>
+    <script src="/product-detail/js/jquery.slicknav.js"></script>
+    <script src="/product-detail/js/owl.carousel.min.js"></script>
+    <script src="/product-detail/js/jquery.nicescroll.min.js"></script>
+    <script src="/product-detail/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/product-detail/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/style.css" type="text/css">
+
+    <style>
+        /* Default font size */
+        th {
+            font-size: 18px;
+        }
+
+        h6 {
+            font-size: 18px;
+        }
+
+        /* Adjust font size at smaller screen sizes */
+        @media screen and (max-width: 768px) {
+            th {
+                font-size: 14px;
+            }
+
+            h6 {
+                font-size: 14px;
+            }
+        }
+
+        /* Adjust font size at even smaller screen sizes */
+        @media screen and (max-width: 576px) {
+            th {
+                font-size: 12px;
+            }
+
+            h6 {
+                font-size: 12px;
+            }
+
+        }
+
+        .cart__price {
+            font-size: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .cart__price {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .cart__price {
+                font-size: 0.7rem;
+            }
+        }
+
+        .qauntitySection {
+            display: flex;
+            margin-left: 2rem;
+            font-size: 1.2rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .qauntitySection {
+                font-size: 1rem;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .qauntitySection {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .icon {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .icon {
+                font-size: 1rem;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .cart__total span {
+                font-size: 1.2rem;
+            }
+
+            .cart__total #totaItemPrice {
+                    {
+                    this._id
+                }
+            }
+
+                {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media only screen and (max-width: 576px) {
+            .cart__total span {
+                font-size: 12px;
+            }
+
+            .cart__total #totaItemPrice {
+                    {
+                    this._id
+                }
+            }
+
+                {
+                font-size: 1rem;
+            }
+        }
+
+        .cart__close {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .cart__close {
+                font-size: 1rem;
+            }
+
+            .cart__close .icon_close {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cart__close {
+                font-size: 0.8rem;
+            }
+
+            .cart__close .icon_close {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+                </a></li>
+            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+                </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="/product-detail/img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            {{#if user}}
+            <a href="/profile">{{user.name}}</a>
+            {{else}}
+            <a href="/login">Lgin</a>
+            <a href="/signup">Register</a>
+            {{/if}}
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header" style="height: 70px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="/"><img src="/product-detail/img/logo.png" style="width: 22%;" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/productpage">Products</a></li>
+                            <li><a href="/productpage">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                            <li><a href="/wish-list">Wishlist</a></li>
+                            <li class="active"><a href="/cartpage">Cart</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <div class="header__right__auth">
+                            {{#if user}}
+                            <a href="/profile">{{user.name}}</a>
+                            {{else}}
+                            <a href="/login">Login</a>
+                            <a href="/signup">Register</a>
+                            {{/if}}
+                        </div>
+                        <ul class="header__right__widget">
+                            <li><span class="icon_search search-switch"></span></li>
+                            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+
+
+                                </a></li>
+                            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Shop Cart Section Begin -->
+    <section class="shop-cart spad">
+        <div class="container">
+            {{#if products}}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shop__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                {{#each products}}
+                                <tr id="productRow{{this._id}}">
+                                    <td class="cart__product__item">
+                                        <img src="/photos/{{this.image}}" alt="" style="width: 5rem;">
+                                        <div class="cart__product__item__title">
+                                            <h6>{{this.productname}}</h6>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price"><span>₹</span> <span
+                                            id="price{{this._id}}">{{this.prize}}</span></td>
+                                    <td class="cart__quantity">
+                                        <input id="mrp{{this._id}}" type="hidden" value="{{this.MRP}}">
+                                        <div class="qauntitySection"
+                                            style="display: flex; margin-left: 2rem; margin-top: 1rem; ">
+                                            <a onclick="decrement('{{this._id}}')" style="color: black;">
+                                                <div class="addquantitybtn" style="margin-left: -2rem;"><i
+                                                        class="bi bi-dash-lg"></i></div>
+                                            </a>
+                                            <b id="quantityBox{{this._id}}">{{this.quantity}}</b>
+                                            <a onclick="increment('{{this._id}}')" style="color: black;">
+                                                <div class="addquantitybtn" style="margin-left: 1rem;"><i
+                                                        class="bi bi-plus-lg"></i></div>
+                                            </a>
+
+                                        </div>
+                                        <p id="message{{this._id}}"></p>
+                                    </td>
+                                    <td class="cart__total"><span>₹</span><span
+                                            id="totaItemPrice{{this._id}}">{{this.itemprize}}</span></td>
+                                    <td class="cart__close"> <a
+                                            href="/removeFromCart/{{this._id}}/{{this.quantity}}"><span
+                                                class="icon_close"></span></a></td>
+
+                                </tr>
+                                {{/each}}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    {{#if cartMessage}}
+                    <p>{{cartMessage}}</p>
+                    {{/if}}
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                </div>
+                <div class="col-lg-4 offset-lg-2">
+                    <div class="cart__total__procced">
+                        <h6>Cart total</h6>
+                        <ul>
+                            <li> TotalMRP <span style="color: black;"><span>₹<span><s
+                                                id="totalMrp">{{totalMRP}}</s></span></span></span></li>
+                            <li>Discount: <span style="color: rgb(42, 133, 42);">-₹<span
+                                        style="color: rgb(42, 133, 42);" id="discount">{{discount}}</span></span></li>
+
+
+                            <li> Delivary charge<span style="color: rgb(42, 139, 42);">Free</span></li>
+                            <hr>
+                            <li>Total <span>₹<span id="totalAmount">{{totalAmount}}</span></span></li>
+
+
+                            <li>
+                                <span style="color: rgb(42, 139, 42);">
+                                    You will save ₹
+                                    <span style="color: rgb(42, 139, 42);" id="showdiscount">
+                                        {{discount}}
+                                    </span>
+                                </span>
+                            </li>
+
+
+                            </li>
+                            <hr>
+                        </ul>
+                        <a href="/checkout" class="primary-btn">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <img src="/images/oopsCart.png" alt="" style="    max-width: 65%;margin: auto;">
+            <div style="    display: flex;
+    justify-content: center;"><a href="/" class="primary-btn">Shop Now</a></div>
+            {{!-- {{else if noUser}}
+            <h2>hello</h2> --}}
+
+            {{/if}}
+            {{message}}
+        </div>
+    </section>
+    <!-- Shop Cart Section End -->
+ <div class="instagram">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-1.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-2.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-3.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-4.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-5.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/product-detail/img/instagram/insta-6.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">@ Bolt</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instagram End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-7">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img style="max-width: 20%;" src="/product-detail/img/logo.png"
+                                    alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            cilisis.</p>
+                        <div class="footer__payment">
+                            <a href="#"><img src="/product-detail/img/payment/payment-1.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-2.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-3.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-4.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-5.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-5">
+                    <div class="footer__widget">
+                        <h6>Quick links</h6>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="footer__widget">
+                        <h6>Account</h6>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Orders Tracking</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="footer__newslatter">
+                        <h6>NEWSLETTER</h6>
+                        {{#if user}}
+                        <form action="/logout" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">logout</button>
+                        </form>
+                        {{else}}
+                        <form action="/login" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">login</button>
+                        </form>
+                        {{/if}}
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+    <!-- Js Plugins -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        function increment(id) {
+            document.getElementById('message'+id).textContent = ''
+            axios.get('/incrementQuantity/' + id).then((result) => {
+                let quantityBox = document.getElementById('quantityBox' + id)
+                if (result.data.success) {
+                    quantityBox.textContent = Number(quantityBox.textContent) + 1;
+                    let totaItemPrice = document.getElementById('totaItemPrice' + id);
+                    let price = Number(document.getElementById('price' + id).textContent);
+                    let totalMRP = document.getElementById('totalMrp');
+                    let mrp = Number(document.getElementById("mrp" + id).value);
+                    let discount = document.getElementById('discount');
+                    let showdiscount = document.getElementById('showdiscount');
+                    let totalAmount = document.getElementById('totalAmount');
+                    totaItemPrice.textContent = price * Number(quantityBox.textContent);
+                    totalMRP.textContent = Number(totalMRP.textContent) + mrp;
+                    discount.textContent = Number(totalMRP.textContent) - Number(totaItemPrice.textContent);
+                    showdiscount.textContent = Number(totalMRP.textContent) - Number(totaItemPrice.textContent);
+                    totalAmount.textContent = Number(totalAmount.textContent)+price
+
+
+                }
+                else {
+                    document.getElementById('message'+id).textContent = result.data.message
+                }
+            })
+
+        }
+
+        function decrement(id) {
+            document.getElementById('message'+id).textContent = ''
+            let quantityBox = document.getElementById('quantityBox' + id)
+            if (Number(quantityBox.textContent) > 1) {
+                axios.get('/decrementQuantity/' + id).then((result) => {
+                    if (result.data.success) {
+                        quantityBox.textContent = Number(quantityBox.textContent) - 1;
+                        let totaItemPrice = document.getElementById('totaItemPrice' + id)
+                        let price = Number(document.getElementById('price' + id).textContent)
+                        totaItemPrice.textContent = price * Number(quantityBox.textContent)
+                        let totalMRP = document.getElementById('totalMrp')
+                        let mrp = Number(document.getElementById("mrp" + id).value)
+                        let discount = document.getElementById('discount')
+                        let showdiscount = document.getElementById('showdiscount');
+                        let totalAmount = document.getElementById('totalAmount')
+                        totalMRP.textContent = Number(totalMRP.textContent) - mrp
+                        discount.textContent = Number(totalMRP.textContent) - Number(totaItemPrice.textContent)
+                        showdiscount.textContent = Number(totalMRP.textContent) - Number(totaItemPrice.textContent);
+                        totalAmount.textContent = Number(totalAmount.textContent)-Number(price)
+
+                    }
+                    else {
+                        quantityBox.textContent = Number(quantityBox.textContent) - 1;
+                        let totaItemPrice = document.getElementById('totaItemPrice' + id)
+                        let price = Number(document.getElementById('price' + id).textContent)
+                        totaItemPrice.textContent = price * Number(quantityBox.textContent)
+                        let totalMRP = document.getElementById('totalMrp')
+                        let mrp = Number(document.getElementById("mrp" + id).value)
+                        totalMRP.textContent = Number(totalMRP.textContent) - mrp
+                    }
+                })
+
+            }
+            else {
+                document.getElementById('message'+id).textContent = 'Cannot increase quantity less than 1'
+
+            }
+
+        }
+    </script>
+
+
+    <script src="/product-detail/js/jquery-3.3.1.min.js"></script>
+    <script src="/product-detail/js/bootstrap.min.js"></script>
+    <script src="/product-detail/js/jquery.magnific-popup.min.js"></script>
+    <script src="/product-detail/js/jquery-ui.min.js"></script>
+    <script src="/product-detail/js/mixitup.min.js"></script>
+    <script src="/product-detail/js/jquery.countdown.min.js"></script>
+    <script src="/product-detail/js/jquery.slicknav.js"></script>
+    <script src="/product-detail/js/owl.carousel.min.js"></script>
+    <script src="/product-detail/js/jquery.nicescroll.min.js"></script>
+    <script src="/product-detail/js/main.js"></script>
+</body>
+
+</html>

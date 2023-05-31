@@ -1,0 +1,38 @@
+<section class="section" style="background-color: #17181E; overflow-x: hidden;">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card text-white bg-transparent border-1 border-gray rounded-3">
+          <div class="card-body p-5 text-center" style="    margin-top: 5rem;">
+            <h2 class="mb-4 fw-bold">SignUp</h2>
+            <form action="/signup" method="post">
+              <div class="mb-md-5 pb-5">
+                <div class="form-outline mb-4">
+                  <input  style="background: transparent;color: white;" type="name" id="typeEmailX" class="form-control form-control-lg text-white" required placeholder="Name" name="name" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input  style="background: transparent;color: white;" type="email" id="typePasswordX" class="form-control form-control-lg text-white" required placeholder="E-mail" name="email" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input  style="background: transparent;color: white;" type="number" id="typeEmailX" class="form-control form-control-lg text-white" required placeholder="Phone NO" name="phoneno" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input  style="background: transparent;color: white;" type="password" id="typeEmailX" class="form-control form-control-lg text-white" required placeholder="Password" name="password" />
+                </div>
+                <div class="form-outline mb-4">
+                  <input  style="background: transparent;color: white;" type="password" id="typeEmailX" class="form-control form-control-lg text-white" required placeholder="Confirm Password" name="confirmpassword" />
+                </div>
+                <p class="text-danger mb-4">{{message}}</p>
+                <button type="submit" class="btn btn-outline-primary btn-lg">signUp</button>
+                <div class="d-flex justify-content-center pt-4">
+                  <p class="me-1 mb-0">Existing user?</p>
+                  <a href="/login" class="text-decoration-none"><p class="fw-bold mb-0">Log In</p></a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

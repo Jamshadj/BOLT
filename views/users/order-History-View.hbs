@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ashion Template">
+    <meta name="keywords" content="Ashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ashion | Template</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/product-detail/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/product-detail/css/style.css" type="text/css">
+</head>
+
+<body>
+
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            <li><span class="icon_search search-switch"></span></li>
+            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+                </a></li>
+            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+                </a></li>
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="/product-detail/img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth">
+            {{#if user}}
+            <a href="/profile">{{user.name}}</a>
+            {{else}}
+            <a href="/login">Lgin</a>
+            <a href="/signup">Register</a>
+            {{/if}}
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header" style="height: 70px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="/"><img src="/product-detail/img/logo.png" style="width: 22%;" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/productpage">Products</a></li>
+                            <li><a href="/productpage">Shop</a></li>
+                            <li class="active"><a href="#">Orders</a></li>
+                            <li><a href="">Blog</a></li>
+                            <li><a href="">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <div class="header__right__auth">
+                            {{#if user}}
+                            <a href="/profile">{{user.name}}</a>
+                            {{else}}
+                            <a href="/login">Login</a>
+                            <a href="/signup">Register</a>
+                            {{/if}}
+                        </div>
+                        <ul class="header__right__widget">
+                            <li><span class="icon_search search-switch"></span></li>
+                            <li><a href="/wish-list"><span class="icon_heart_alt"></span>
+
+
+                                </a></li>
+                            <li><a href="/cartpage"><span class="icon_bag_alt"></span>
+
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <section class="product-details spad">
+        <div class="container" style="margin-top: 13px;">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__slider__content">
+                            <div class="product__details__pic__slider owl-carousel">
+                                <div class="wrap-pic-w pos-relative" id="image-zoom" style="z-index: 10;">
+                                    <img src="/photos/{{orderItem.image}}" alt="IMG-PRODUCT">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text" style="margin-top: 2rem;">
+                        <h6>Order ID: <span>{{order._id}}</span></h6>
+                        <h2 style="font-weight: 500;">{{orderItem.name}}</h2>
+                        <h3><span>Quantity: {{orderItem.quantity}}</span></h3>
+                        <div class="product__price">₹ {{orderItem.price}}</div>
+
+                        <h5 style="margin-top: 10px; font-weight: 500;">Status: <span>{{orderItem.status}}</span>
+                        </h5>
+                        <h6 style="margin-top: 10px;">Ordered Date: <span>{{formatDate order.date "DD-MM-YYYY"}}</span>
+                        </h6>
+
+
+                        {{#ifEqual orderItem.status "Delivered"}}
+                        {{#if isOrderReturnable}}
+                        <h6 style="margin-top: 10px;">Delivered Date: <span>{{formatDate orderItem.deliveredDate
+                                "DD-MM-YYYY"}}</span></h6>
+
+                        <div class="product__details__button" style="margin-top: 4rem;">
+                            <button class="cart-btn" data-toggle="modal" data-target="#exampleModal">Return
+                                Order</button>
+                            <ul></ul>
+                        </div>
+
+                        <p class="text-success" style="    font-size: 16px;
+    font-weight: 600;">Return will be closed by {{formatDate returnFinished "DD-MM-YYYY"}}</p>
+
+                        {{/if}}
+                        {{else ifEqual orderItem.status "Return requested"}}
+                        <h6 style="margin-top: 10px;">Delivered Date: <span>{{formatDate orderItem.deliveredDate
+                                "DD-MM-YYYY"}}</span></h6>
+                        <div class="product__details__button" style="margin-top: 4rem;">
+                            <button class="cart-btn">Return
+                                Processing</button>
+                            <ul></ul>
+                        </div>
+                        {{else ifEqual orderItem.status "Return completed"}}
+
+                        <div class="product__details__button" style="margin-top: 4rem;">
+                            <button class="btn btn-primary">Return
+                                Completed</button>
+                            <ul></ul>
+                        </div>
+
+                        {{else ifEqual orderItem.status "Cancelled"}}
+                        <h6 style="margin-top: 10px;">Cancelled Date: <span>{{formatDate orderItem.CancelledDate
+                                "DD-MM-YYYY"}}</span></h6>
+                        <div class="product__details__button" style="margin-top: 4rem;">
+                            <button class="btn btn-danger">
+                                Order Cancelled</button>
+                            <ul></ul>
+                        </div>
+                        {{else}}
+                        <div class="product__details__button" style="margin-top: 4rem;">
+
+                            <button class="cart-btn" data-toggle="modal" data-target="#exampleModal">Cancel
+                                Order</button>
+                            <ul></ul>
+                        </div>
+                        {{/ifEqual}}
+
+
+                        {{#ifEqual orderItem.status "Cancelled"}}
+                        {{#ifEqual order.paymentMethod "Online-payment"}}
+                            <p>Amount sucessfully added to your wallet</p>
+                        {{/ifEqual}}
+                        {{else ifEqual orderItem.status "Return requested"}}
+                        {{else ifEqual orderItem.status "Return completed"}}
+                         <p>Amount sucessfully added to your wallet</p>
+                        {{else}}
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 font-weight-bold">Shipping Address:</h5>
+                            <p class="card-text">{{order.shippingAddress.name}}</p>
+                            <p class="card-text">{{order.shippingAddress.address}}</p>
+                            <p class="card-text">{{order.shippingAddress.state}} - {{order.shippingAddress.pincode}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 font-weight-bold">Payment Details:</h5>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Order ID:</h6>
+                                <span class="card-text" style="display: inline-block;">{{order._id}}</span>
+                            </div>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Quantity:</h6>
+                                <span class="card-text" style="display: inline-block;">{{orderItem.quantity}}</span>
+                            </div>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Item Price:</h6>
+                                <span class="card-text" style="display: inline-block;"><i
+                                        class="bi bi-currency-rupee"></i>{{orderItem.price}}</span>
+                            </div>
+                            <h6 class="card-title mb-3 font-weight-bold"
+                                style="display: inline-block; margin-right: 10px;">Ordered Items in This Order:</h6>
+                            <ul>
+                                {{#each order.orderItems}}
+                                <li>{{this.name}}</li>
+                                {{/each}}
+                            </ul>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Items Price:</h6>
+                                <span class="card-text" style="display: inline-block;"><i
+                                        class="bi bi-currency-rupee"></i>{{order.itemsPrice}}</span>
+                            </div>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Discount Applied:</h6>
+                                <span class="card-text" style="display: inline-block;">(from wallet or coupon): <i
+                                        class="bi bi-currency-rupee"></i>{{order.discount}}</span>
+                            </div>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Total Amount to be Paid:</h6>
+                                <span class="card-text" style="display: inline-block;"><i
+                                        class="bi bi-currency-rupee"></i>{{order.totalPrice}}</span>
+                            </div>
+                            <div>
+                                <h6 class="card-title mb-3 font-weight-bold"
+                                    style="display: inline-block; margin-right: 10px;">Payment Method:</h6>
+                                <span class="card-text" style="display: inline-block;">{{order.paymentMethod}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {{/ifEqual}}
+            </div>
+        </div>
+    </section>
+
+    {{#ifEqual orderItem.status "Delivered"}}
+    <hr>
+    {{#if review}}
+    <div>
+        <h2 style="font size">{{review.rating}}</h2>
+        <h2>{{review.comment}}</h2>
+    </div>
+
+    {{else}}
+    <div>
+        <form action="/addReviews" method="post">
+            <p style="text-align: center; font-size: 19px; font-weight: 600;">Rate & Review</p>
+            <div style="display: flex; justify-content: center;">
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label class="star" for="star5"><span class="fa fa-star"></span></label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label class="star" for="star4"><span class="fa fa-star"></span></label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label class="star" for="star3"><span class="fa fa-star"></span></label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label class="star" for="star2"><span class="fa fa-star"></span></label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label class="star" for="star1"><span class="fa fa-star"></span></label>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 19px; font-weight: 600;">Comment</p>
+            <div style="display: flex; justify-content: center;">
+                <textarea style="width: 50%;" class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    name="comment" required></textarea>
+            </div>
+
+            <input type="hidden" value="{{orderItem.product}}" name="productId">
+            <input type="hidden" value="{{orderItem._id}}" name="Id">
+            <input type="hidden" value="{{order.user}}" name="user">
+            <div style="display: flex; margin: 1rem; margin-bottom: 3rem; justify-content: center;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+    {{/ifEqual}}
+
+    <style>
+        .rating {
+            float: left;
+
+        }
+
+        .rating label {
+            color: #90A0A3;
+            float: right;
+            font-size: 2em;
+            margin-left: 1rem;
+        }
+
+        .rating input[type="radio"] {
+            display: none;
+        }
+
+        .rating input[type="radio"]:checked~label {
+            color: orange;
+        }
+    </style>
+
+
+    <!-- Search Begin -->
+    <div class=" search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form" action="/search-product" method="post">
+                <input type="text" id="search-input" placeholder="Search here....." name="name">
+            </form>
+        </div>
+    </div>
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-7">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="./index.html"><img style="max-width: 20%;" src="/product-detail/img/logo.png"
+                                    alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                            cilisis.</p>
+                        <div class="footer__payment">
+                            <a href="#"><img src="/product-detail/img/payment/payment-1.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-2.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-3.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-4.png" alt=""></a>
+                            <a href="#"><img src="/product-detail/img/payment/payment-5.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-5">
+                    <div class="footer__widget">
+                        <h6>Quick links</h6>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="footer__widget">
+                        <h6>Account</h6>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Orders Tracking</a></li>
+                            <li><a href="#">Checkout</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="footer__newslatter">
+                        <h6>NEWSLETTER</h6>
+                        {{#if user}}
+                        <form action="/logout" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">logout</button>
+                        </form>
+                        {{else}}
+                        <form action="/login" method="get">
+                            <input type="hidden" placeholder="Email">
+                            <button type="submit" class="site-btn">login</button>
+                        </form>
+                        {{/if}}
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{#if isOrderReturnable}}
+                    <form action="/return" method="post">
+                        <input type="hidden" value="{{order._id}}" name="orderId">
+                        <input type="hidden" value="{{order.user}}" name="userId">
+                        <input type="hidden" value="{{orderItem._id}}" name="orderItemId">
+                        <button type="submit" class="btn btn-primary">Conform return</button>
+                    </form>
+                    {{else}}
+                    <form action="/cancel" method="post">
+                        <input type="hidden" value="{{order._id}}" name="orderId">
+                        <input type="hidden" value="{{order.user}}" name="userId">
+                        <input type="hidden" value="{{orderItem.price}}" name="itemPrice">
+                        <input type="hidden" value="{{orderItem._id}}" name="orderItemId">
+                        <button type="submit" class="btn btn-primary">Conform cancel</button>
+                    </form>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Js Plugins -->
+
+    <script src="/product-detail/js/jquery-3.3.1.min.js"></script>
+    <script src="/product-detail/js/bootstrap.min.js"></script>
+    <script src="/product-detail/js/jquery.magnific-popup.min.js"></script>
+    <script src="/product-detail/js/jquery-ui.min.js"></script>
+    <script src="/product-detail/js/mixitup.min.js"></script>
+    <script src="/product-detail/js/jquery.countdown.min.js"></script>
+    <script src="/product-detail/js/jquery.slicknav.js"></script>
+    <script src="/product-detail/js/owl.carousel.min.js"></script>
+    <script src="/product-detail/js/jquery.nicescroll.min.js"></script>
+    <script src="/product-detail/js/main.js"></script>
+</body>
+
+</html>

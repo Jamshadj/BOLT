@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/admincss/img/favicon.png" rel="icon">
+  <link href="/admincss/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-cgF1pM05SN0RbTZtT/NnYlxlJtFaLvcSUpkkR9XvD8VxmddFZq3s4sQVPJLPb7wyjB43sdJJHk+He47mXJIt7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Vendor CSS Files -->
+  <link href="/admincss/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/admincss/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/admincss/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/admincss/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/admincss/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/admincss/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/admincss/vendor/simple-datatables/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="/admincss/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin - v2.5.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+  <div class="d-flex align-items-center justify-content-between">
+    <div href="" class="logo d-flex align-items-center">
+      <img src="/admincss/img/logo.png" alt="">
+      <span class="d-none d-lg-block">Admin</span>
+    </div>
+  </div>
+</header><!-- End Header -->
+
+
+  <section class="product-details spad mt-5" >
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="text-center mt-4">Order ID: <span>{{order._id}}</span></p>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title mb-3 font-weight-bold">Shipping Address:</h5>
+              <p class="card-text">{{order.shippingAddress.name}}</p>
+              <p class="card-text">{{order.shippingAddress.address}}</p>
+              <p class="card-text">{{order.shippingAddress.state}} - {{order.shippingAddress.pincode}}</p>
+            </div>
+          </div>
+          <h5 class="mb-3">Order Date: {{order.date}}</h5>
+          {{#each order.orderItems}}
+          <div class="row mb-4">
+            <div class="col-lg-5">
+              <div class="product__details__pic">
+                <div class="product__details__slider__content">
+                  <div class="product__details__pic__slider owl-carousel">
+                    <div class="wrap-pic-w pos-relative" id="image-zoom" style="z-index: 10;">
+                      <img src="/photos/{{this.image}}" alt="IMG-PRODUCT" style="margin: 1rem;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7">
+              <div class="product__details__text" style="margin-top: 2rem;">
+                <h2 style="font-weight: 500;">{{this.name}}</h2>
+                <h3 class="mb-3"><span>Quantity: {{this.quantity}}</span></h3>
+                <div class="product__price mb-3">₹ {{this.price}}</div>
+                <h6 class="mb-3">Status: <span>{{this.status}}</span></h6>
+                {{#ifEqual this.status "Delivered"}}
+                <button type="button" class="btn btn-success mb-3">Order Completed Successfully</button>
+                {{else ifEqual this.status "Cancelled"}}
+                <button class="btn btn-danger mb-3">Order Cancelled By User</button>
+                {{else ifEqual this.status "Return completed"}}
+                <button class="btn btn-danger mb-3">Return completed</button>
+                {{else}}
+                <a href="/admin/orderStatus/{{this._id}}">
+                  <button type="button" class="btn btn-primary mb-3">Edit Status</button>
+                </a>
+                {{/ifEqual}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5 class="card-title mb-4 font-weight-bold">Order Details:</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="mb-1">Order total price:</p>
+                      <p class="font-weight-bold">₹ {{order.itemsPrice}}</p>
+                      {{#ifEqual order.discount 0}}
+                      {{else}}
+                      <p class="mb-1">Discount:</p>
+                      <p class="font-weight-bold">₹ {{order.discount}}</p>
+                      {{/ifEqual}}
+                      <p class="mb-1">Amount Payable:</p>
+                      <p class="font-weight-bold">₹ {{order.totalPrice}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <h5 class="card-title mb-4">Payment Details:</h5>
+                    <div class="row">
+                      <p class="mb-1">Method:</p>
+                      <p class="font-weight-bold">{{order.paymentMethod}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="assets/vendor/echarts/echarts.min.js"></script>
+  <script src="assets/vendor/quill/quill.min.js"></script>
+  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/admincss/js/main.js"></script>
+
+</body>
+
+</html>

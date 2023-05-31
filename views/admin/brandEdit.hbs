@@ -1,0 +1,54 @@
+<section
+  style="background: rgb(2,0,36);
+      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(166,178,228,0.3982843137254902) 0%, rgba(197,213,214,1) 100%);">
+  <form action="/admin/brandEdit" method="post" enctype="multipart/form-data" >
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+              <div class="pb-5">
+
+
+                </span>
+              </div>
+
+              <h2 class="fw-bold  text-dark text-uppercase">Edit Brand</h2>
+
+
+
+              <div class="form-outline mb-4">
+               <div class="form-outline form-white mb-5">
+  <input type="text" name="_id" value="{{brand._id}}" style="height:0px; visibility:hidden">
+  <p style="margin-right: 18rem; color: black; font-size: 1rem; margin-bottom: 0%; margin-top: 1rem; font-weight: bold;">
+    Brand
+  </p>
+  <input type="text" name="newbrands" placeholder="category" value="{{brand.newbrands}}" class="form-control form-control-lg" required />
+  <div>
+    <p style="margin-right: 18rem; color: black; font-size: 1rem; margin-bottom: 0%; margin-top: 1rem;font-weight: bold;">
+      Image
+    </p>
+    <img src="/photos/{{brand.image}}" alt="" style="width:4rem; margin-right: 18rem; height: 6rem;">
+  </div>
+  <label for="exampleFormControlFile1">Main Image</label>
+  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" style="margin-top: -16px;">
+</div>
+
+
+                <button class="btn btn-outline-success btn-lg px-5" type="submit" style="width: 12rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -18px;
+    margin-bottom: 3rem;">Submit</button>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+  </div>
+
+</section>

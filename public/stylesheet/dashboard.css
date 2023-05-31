@@ -1,0 +1,20 @@
+
+.appname{
+    color: rgb(255, 255, 255);
+    float: right;  
+    font-weight: bolder;
+}
+.icon{
+    color: white;  
+}
+.Top-right{
+    float: right;
+    padding-right: 4rem;
+    padding-top: 1rem;
+}
+.admin-left{
+    width: 12rem;
+    height: 30rem;
+    background-color: rgb(255, 255, 255);
+
+}

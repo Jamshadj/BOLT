@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/admincss/img/favicon.png" rel="icon">
+    <link href="/admincss/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-cgF1pM05SN0RbTZtT/NnYlxlJtFaLvcSUpkkR9XvD8VxmddFZq3s4sQVPJLPb7wyjB43sdJJHk+He47mXJIt7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <!-- Vendor CSS Files -->
+    <link href="/admincss/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admincss/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/admincss/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/admincss/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="/admincss/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="/admincss/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/admincss/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="/admincss/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin - v2.5.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <div href="" class="logo d-flex align-items-center">
+                <img src="/admincss/img/logo.png" alt="">
+                <span class="d-none d-lg-block">Admin</span>
+            </div>
+
+
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        <div class="search-bar" style="margin-left: auto; margin-right: auto;">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
+
+        <nav class="header-nav ms-auto">
+            <ul class="d-flex align-items-center">
+
+                <li class="nav-item d-block d-lg-none">
+                    <a class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i class="bi bi-search"></i>
+                    </a>
+                </li><!-- End Search Icon-->
+            </ul>
+        </nav>
+        <div>
+            <a href="/admin/logout"> <button class="btn btn-danger" style="margin-right: 1rem;">Logout</button></a>
+        </div><!-- End Icons Navigation -->
+    </header><!-- End Header -->
+
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item active">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="/admin/Home">
+                    <i class="bi bi-bar-chart-fill"></i><span>Dashboard</span>
+                </a>
+                <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/products">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Products</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/AddCategory">
+                    <i class="bi bi-dice-4-fill"></i><span>Category</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/brand">
+                    <i class="bi bi-distribute-vertical"></i><span>Brands</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/banner">
+                    <i class="bi bi-easel-fill"></i><span>Banner</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/coupon">
+                    <i class="bi bi-file-earmark-fill"></i></i><span>Coupon</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/users">
+                    <i class="bi bi-person-circle"></i></i><span>Users</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse"
+                    href="/admin/orders">
+                    <i class="bi bi-clipboard2-fill"></i></i><span>Orders</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/admin/salesreport">
+                    <i class="bi bi-receipt"></i></i>
+                    <span>Salesreport</span>
+                </a>
+            </li>
+        </ul>
+
+    </aside><!-- End Sidebar-->
+    <main id="main" class="main">
+        <section class="section dashboard" style="padding: 0%;">
+            <div class="row">
+
+                <!-- Left side columns -->
+                <div class="col-lg-12">
+                    <div class="row">
+
+                        <!-- Sales Card -->
+                        <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card sales-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sales</h5>
+
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-cart"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>{{salesCount}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- End Sales Card -->
+
+                        <!-- Revenue Card -->
+                        <div class="col-xxl-4 col-md-4">
+                            <div class="card info-card revenue-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Revenue </h5>
+
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-currency-dollar"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6><i class="bi bi-currency-rupee"></i>{{salesSum}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- End Revenue Card -->
+
+                        <!-- Customers Card -->
+                        <div class="col-xxl-4 col-md-4">
+
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Customers</h5>
+
+                                    <div class="d-flex align-items-center">
+                                        <div
+                                            class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+                                        <div class="ps-3">
+                                            <h6>{{userCount}}</h6>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div><!-- End Customers Card -->
+                        <div class="col-md-12">
+                            <div class="mt-4">
+                                <div class="input-group">
+                                    <form action="/admin/salesReport" method="get">
+                                        From: <input class="form-control" type="date" name="startDate"> To: <input
+                                            class="form-control" type="date" name="endDate">
+
+                                        <button type="submit"
+                                            class="btn btn-sm btn-warning rounded mt-3">Filter</button>
+
+
+                                    </form>
+                                </div>
+
+                                <div class=" mt-4">
+                                    <a href="/admin/salesReport?filter=thisMonth" class="btn btn-sm btn-light"
+                                        type="button"> This Month </a>
+                                    <a href="/admin/salesReport?filter=lastMonth" class="btn btn-sm btn-light"
+                                        type="button"> Last Month </a>
+                                    <a href="/admin/salesReport?filter=thisYear" class="btn btn-sm btn-light"
+                                        type="button">
+                                        This Year </a>
+                                    <a href="/admin/salesReport?filter=lastYear" class="btn btn-sm btn-light"
+                                        type="button">
+                                        Last Year </a>
+                                </div>
+                                <div class="d-flex justify-content-end" style="margin-right: 5rem;">
+                                    <button onclick=" downloadPdf()" class="btn btn-sm btn-warning rounded">Download as
+                                        PDF</button>
+                                    <button onclick=" downloadExcel()"
+                                        class="ms-3 btn btn-sm btn-warning rounded">Download
+                                        as
+                                        Excel</button>
+                                </div>
+                                <h3 class="text-dark mt-4">Orders</h3>
+                                <div class="card mt-3" style="margin-right: 5rem;">
+                                    <div class="card-body pt-2">
+
+                                        <table class="table table-hover table-borderless mt-2 ">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">User</th>
+                                                    <th scope="col">Product</th>
+                                                    <th scope="col">Order Date</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Quantity</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Payment Status</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each deliveredOrders}}
+                                                <tr>
+                                                    <th scope="row">{{ @index}}</th>
+                                                    <td>{{this.shippingAddress.name}}</td>
+                                                    <td>{{this.orderItems.[0].name}}</td>
+
+                                                    <td>{{this.date}}</td>
+                                                    <td>{{this.orderItems.[0].price}}</td>
+                                                    <td>{{this.orderItems.[0].quantity}}</td>
+                                                    <td> <span
+                                                            class="badge text-bg-success">{{this.orderItems.[0].status}}</span>
+                                                    </td>
+                                                    <td>Paid</td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </main>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"></script>
+
+<script>
+  let orders = [];
+  {{#each deliveredOrders}}
+  orders.push(['{{this.shippingAddress.name}}', '{{this.orderItems.[0].name}}', '{{this.date}}', '{{this.orderItems.[0].price}}', '{{this.orderItems.[0].quantity}}', '{{this.orderItems.[0].status}}']);
+  {{/each}}
+  let totalRevenue = '{{salesSum}}';
+  let totalOrders = '{{salesCount}}';
+  let Customers = '{{userCount}}';
+
+  const { jsPDF } = window.jspdf;
+
+  function downloadPdf() {
+    const doc = new jsPDF();
+    doc.text(15, 20, "BOLT Store");
+    doc.autoTable({
+      head: [['Type', 'Details']],
+      body: [
+        ['Total Sales', totalOrders],
+        ['Total Revenue', totalRevenue],
+        ['Total Customers', Customers],
+      ],
+      startY: 40
+    });
+    doc.text(15, doc.lastAutoTable.finalY + 20, "Order Info");
+    doc.autoTable({
+      head: [['UserName', 'Product', 'Order Date', 'Amount', 'Quantity', 'Status']],
+      body: orders,
+      startY: doc.lastAutoTable.finalY + 30
+    });
+    doc.save('sales-report.pdf');
+  }
+
+  function downloadExcel() {
+    let report = [
+      { type: 'UserName', value: 'Product', date: 'Order Date', price: 'Amount', quantity: 'Quantity', status: 'Status' },
+      ...orders.map(order => ({ type: order[0], value: order[1], date: order[2], price: order[3], quantity: order[4], status: order[5] })),
+      { type: 'Total Sales', value: totalOrders },
+      { type: 'Total Revenue', value: totalRevenue },
+      { type: 'Total Customers', value: Customers },
+    ];
+
+    var sheet1 = XLSX.utils.json_to_sheet(report);
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, sheet1, 'Sales Report');
+
+    XLSX.writeFile(wb, 'sales-report.xlsx');
+  }
+</script>
+
+
+    </div>
+    </div><!-- End Left side columns -->
+
+
+    </div>
+    </section>
+
+    </main><!-- End #main -->
+
+
+
+    <!-- ======= Footer ======= -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="/admincss/js/main.js"></script>
+
+</body>
+
+</html>

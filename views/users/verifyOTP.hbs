@@ -1,0 +1,72 @@
+
+
+<section class="section" style="overflow: hidden;">
+  <div class="container py-5">
+    <div class="row justify-content-center align-items-center" style="margin-top: 9rem;">
+      <div class="col-sm-8 col-md-6 col-lg-5">
+        <div class="card" style="border-radius: 1rem; border: 1px solid gray; border-radius: 3%; background: transparent;">
+          <div class="card-body p-5 text-center">
+            <form action="/otp" method="post">
+              <h2 class="mb-4 text-uppercase font-weight-bold" style="color: white;">OTP verification</h2>
+              <p class="text-white-50 mb-5" style="color: white;" >Please enter  the OTP</p>
+              {{#if userDetails}}
+              <div class="form-group mb-4">
+                <input type="number" id="typeEmailX" class="form-control form-control-lg" style="background: transparent;color: white;" placeholder="OTP" name="verify" >
+              </div>
+              {{else}}
+               <div class="form-group mb-4">
+                <input type="number" id="typeEmailX" class="form-control form-control-lg" style="background: transparent;color: white;" placeholder="OTP" name="forgot" >
+              </div>
+              {{/if}}
+              <p class="text-danger">{{message}}</p>
+              <button type="submit" class="btn btn-outline-primary btn-block mb-3">Submit</button>
+              <div class="text-center">
+                <p class="mb-2" id="countdown" style="color: white;"></p>
+                  <a href="/resend" id="unhide">
+                      <p style="font-size: 11px; font-weight: bold; color: white;">Resend OTP?</p>
+                    </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    height: 100vh;
+    background-color: #212529;
+  }
+
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 576px) {
+    .card {
+      margin-top: 5rem;
+    }
+  }
+</style>
+ 
+
+<script>
+  document.getElementById("unhide").style.display = "none";
+
+
+
+  var countDownTime = 12000;
+    var seconds = 120;
+  var x = setInterval(function () {
+    seconds--;
+    document.getElementById("countdown").innerHTML = "OTP wil expire in " + seconds + "s ";
+    if (seconds < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = ""
+      document.getElementById("unhide").style.display = "block";
+    }
+  }, 1000);
+</script>  

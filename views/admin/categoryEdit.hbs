@@ -1,0 +1,38 @@
+<section class="vh-100 "
+  style="background: rgb(2,0,36);
+      background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(166,178,228,0.3982843137254902) 0%, rgba(197,213,214,1) 100%);">
+  <form action="/admin/categoryEdit" method="post">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+
+              <div class="pb-5">
+        
+
+                </span>
+              </div>
+
+              <h2 class="fw-bold mb-5 text-dark text-uppercase">Edit Category</h2>
+
+
+                      <input type="text" name="_id" value="{{category._id}}" style="height:0px; visibility:hidden">
+              <div class="form-outline mb-4">
+                <div class="form-outline form-white mb-5">
+                  <input type="text" name="newcategories" placeholder="category" value="{{category.newcategories}}" class="form-control form-control-lg" required />
+                </div>
+                
+
+                <button class="btn btn-outline-success btn-lg px-5" type="submit">Submit</button>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </form>
+  </div>
+  
+</section>
