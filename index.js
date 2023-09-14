@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 app.use(function(req, res, next) {
     res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     next(); 
-});
+}); 
 
 
 date.registerHelper('formatDate', function(date, format) {
