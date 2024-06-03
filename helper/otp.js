@@ -11,8 +11,8 @@ let sentOtp=(email,otp)=>{
           rejectUnauthorized: false
         }, // Usually true if connecting to port 465
         auth: {
-          user: process.env.NODEMAIL,
-pass: process.env.NODEMAILERPASSWORD,
+          user: process.env.email,
+          pass: process.env.password,
         },
       });
     

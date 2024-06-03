@@ -10,8 +10,6 @@ const adminSchema= new mongoose.Schema({
             type:String,
             required : true,
     }
-
-     
 })
 
 const adminModel= new mongoose.model('admin',adminSchema)

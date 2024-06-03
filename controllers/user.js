@@ -696,6 +696,7 @@ const getUserCheckout = async (req, res) => {
 
 
 const postUserCheckout = async (req, res) => {
+  try {
   const userId = req.session.user._id;
   const user = await UserModel.findById(userId).lean();
 
@@ -779,8 +780,8 @@ const postUserCheckout = async (req, res) => {
       headers: {
         accept: "application/json",
         "x-api-version": "2022-09-01",
-        "x-client-id": "333565b632336d7cea8d6caa61565333",
-        "x-client-secret": "fa3273e76456388f4f4498485b16a5647a19b6f1",
+        "x-client-id": process.env.clientId,
+        "x-client-secret": process.env.clientSecret,
         "content-type": "application/json",
       },
       data: {
@@ -821,6 +822,9 @@ const postUserCheckout = async (req, res) => {
     }
     res.redirect("/orderConfirmed");
   }
+} catch (e) {
+  console.log(e.message);
+}
 };
 const postCouponCode = async (req, res) => {
   try {
